@@ -1,8 +1,40 @@
+# === LaTeX build artifacts ===
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# === PDF outputs (optionnel) ===
+# Décommente si tu ne veux PAS versionner les PDFs
+# *.pdf
+
+# === Python ===
 __pycache__/
 *.pyc
-.env
+*.pyo
+*.pyd
+
+# === Node / React (si UI sandbox) ===
 node_modules/
 dist/
-.build/
+build/
+
+# === OS ===
 .DS_Store
+Thumbs.db
+
+# === IDE ===
+.vscode/
+.idea/
+
+# === SSF runtime state (jamais public) ===
+.ssf_state*
+.ssf_sealed_state*
 
