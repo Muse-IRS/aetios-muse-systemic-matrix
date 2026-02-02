@@ -99,6 +99,17 @@ The code is released under **Apache License 2.0**.
 
 ---
 
+## Documentation
+
+- 📘 Whitepaper (conceptual & strategic): `docs/whitepaper.md`
+- 📄 Academic preprint (LaTeX, arXiv/HAL-ready): `paper/ssf_preprint.tex`
+
+The two documents are complementary:
+- the whitepaper explains *why* SSF exists,
+- the preprint formalizes *how* it works.
+
+---
+
 ## Status
 
 **Experimental / Production-ready core**  

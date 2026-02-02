@@ -34,7 +34,23 @@ Thumbs.db
 .vscode/
 .idea/
 
-# === SSF runtime state (jamais public) ===
-.ssf_state*
-.ssf_sealed_state*
+# ==================================================
+# SSF — Runtime State (NEVER PUBLIC)
+# ==================================================
+
+.ssf_state
+.ssf_sealed_state
+*.ssf_state
+*.ssf_runtime
+runtime/
+state/
+cache/
+
+# Environment
+.env
+.env.*
+
+
+
+
 
