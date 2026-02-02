@@ -1,8 +1,10 @@
 cff-version: 1.2.0
 title: "Aétios Muse Systemic Matrix"
-message: "If you use this software, please cite it."
+message: "If you use this software, please cite it as below."
 authors:
   - name: "Aétios Systems"
+    affiliation: "Aétios Muse Systemic Matrix"
 version: "2.2.0"
 license: "Apache-2.0"
-repository-code: "https://github.com/<your-org>/aetios-muse-systemic-matrix"
+repository-code: "https://github.com/aetios-systems/aetios-muse-systemic-matrix"
+date-released: 2026-01-01
