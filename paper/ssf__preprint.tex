@@ -16,13 +16,13 @@
 % META-INFORMATIONS
 % =========================================================
 \title{
-Silence-First Framework (SSF):\\
+The Silence-First Framework (SSF):\\
 A Causal Pre-Inference Regulator for Artificial Intelligence
 }
 
 \author{
-Aétios Muse Systemic Matrix\\
 Open Research Initiative\\
+Anonymous Submission
 }
 
 \date{\today}
@@ -35,31 +35,36 @@ Open Research Initiative\\
 \begin{abstract}
 We introduce the Silence-First Framework (SSF), a causal pre-inference
 regulation mechanism for artificial intelligence systems.
-Unlike alignment, constitutional AI, or content filtering,
-SSF does not regulate what an AI may produce,
+Unlike alignment strategies, constitutional AI, or content-based safety filters,
+SSF does not regulate what an AI system may produce,
 but whether it is causally legitimate for the system to produce any output at all.
-SSF formalizes a computable notion of causal divergence through a phase variable
-$\Phi$, a causal invariant $L$, and a Silence-First gate that authorizes or
-suppresses computation.
-We demonstrate that SSF improves system stability under saturation,
+
+SSF formalizes a notion of causal load through a phase variable $\Phi$,
+a scalar invariant $L = (\Phi \times \pi) / \Omega$,
+and a Silence-First gate that authorizes or suppresses inference.
+We show that SSF improves stability under saturation,
 reduces unnecessary inference calls,
 and provides a unifying causal metric across informational,
-thermodynamic, and stochastic regimes.
+thermodynamic, stochastic, and temporal regimes.
 \end{abstract}
 
 % =========================================================
 \section{Introduction}
 
-Modern artificial intelligence systems increasingly operate under conditions of
-saturation: high request rates, long-context prompts,
-resource-constrained inference, and stochastic degradation.
-Current safety and alignment mechanisms focus on regulating content,
-behavior, or preferences after inference has already occurred.
+Large-scale artificial intelligence systems increasingly operate under
+conditions of saturation:
+high request rates, long-context prompts,
+resource constraints, stochastic noise,
+and time-dependent degradation.
+Existing safety and alignment approaches primarily focus on regulating
+outputs \emph{after} inference has already occurred.
 
-This paper introduces a complementary paradigm:
+This paper proposes a complementary paradigm:
 \emph{causal regulation prior to inference}.
 
-The Silence-First Framework (SSF) enforces a simple but fundamental principle:
+We introduce the Silence-First Framework (SSF),
+which enforces a simple but fundamental principle:
+
 \begin{quote}
 \emph{An intelligent system must retain the right to remain silent
 in order to preserve its causal coherence.}
@@ -76,7 +81,7 @@ SSF is not:
 \item a classifier,
 \item a content filter,
 \item a moral or ethical framework,
-\item an optimization algorithm.
+\item an optimization or reasoning algorithm.
 \end{itemize}
 
 SSF \emph{is}:
@@ -92,14 +97,19 @@ not \emph{what} it should compute.
 % =========================================================
 \section{Causal Formalism}
 
-\subsection{Phase Variable}
+\subsection{Causal Phase Variable}
 
-We define a causal phase $\Phi$ accumulating over system exposure:
+We define a causal phase $\Phi$ that accumulates over system exposure:
 \[
 \Phi(t+1) = \Phi(t) + \Delta \Phi(t)
 \]
 
-A filtered inertial phase $\Phi_c$ is computed using an inertial regulator:
+The increment $\Delta \Phi$ may aggregate heterogeneous contributions,
+including informational density, temporal drift,
+thermodynamic dissipation, and stochastic noise.
+
+To introduce inertia and prevent instantaneous oscillations,
+we define a filtered phase $\Phi_c$:
 \[
 \Phi_c(t+1) = \alpha \Phi(t+1) + (1-\alpha)\Phi_c(t)
 \]
@@ -107,45 +117,68 @@ where $\alpha \in (0,1)$ controls causal inertia.
 
 \subsection{Invariant Causal Load}
 
-We define a scalar invariant:
+We define the central invariant of SSF:
 \[
-L = \frac{\pi \cdot \Phi_c}{\Omega}
+\boxed{
+L = \dfrac{\Phi_c \times \pi}{\Omega}
+}
 \]
-where $\Omega$ is a reference stiffness (typically normalized to 1).
 
-$L$ provides a common metric across heterogeneous regimes:
+where:
 \begin{itemize}
-\item informational (entropy, prompt density),
-\item thermodynamic (resource dissipation),
-\item stochastic (noise, jitter),
-\item temporal (latency, drift).
+\item $\Phi_c$ is the filtered causal phase,
+\item $\pi$ introduces a geometric phase normalization,
+\item $\Omega$ is a reference stiffness parameter
+representing the nominal causal capacity of the system.
 \end{itemize}
 
-\subsection{Silence-First Gate}
+In most experimental settings, $\Omega$ is normalized to 1,
+allowing direct comparison across systems.
 
-The SSF gate authorizes inference if:
+\subsection{Interpretation of $L$}
+
+$L$ represents the \emph{effective causal load} of the system.
+It provides a single scalar metric that is comparable across:
+\begin{itemize}
+\item informational regimes (entropy, prompt density),
+\item thermodynamic regimes (energy dissipation, resource usage),
+\item stochastic regimes (noise, jitter, decoherence),
+\item temporal regimes (latency, drift).
+\end{itemize}
+
+$L$ is not a performance metric.
+It is a measure of causal tension.
+
+% =========================================================
+\section{Silence-First Gate}
+
+The Silence-First gate authorizes inference if and only if:
 \[
 |\Delta \Phi_c| > \varepsilon
 \]
+where $\varepsilon$ is a system-specific divergence threshold.
 
-Otherwise, the system remains silent.
-Silence is treated as a valid, measurable state.
+If the condition is not satisfied,
+the system remains silent.
+Silence is treated as a valid, measurable state,
+not as an error or failure.
 
 % =========================================================
 \section{Architecture}
 
-SSF is positioned strictly \emph{before} inference.
+SSF is positioned strictly \emph{before} inference:
 
 \begin{center}
 \textbf{Input} $\rightarrow$ \textbf{SSF Gate} $\rightarrow$ \textbf{Model Inference}
 \end{center}
 
-If the gate remains closed, inference is never invoked.
+If the gate remains closed,
+inference is never invoked.
 This prevents:
 \begin{itemize}
 \item unnecessary computation,
 \item unstable reasoning under saturation,
-\item feedback amplification.
+\item feedback amplification and runaway loops.
 \end{itemize}
 
 SSF is orthogonal to:
@@ -160,8 +193,9 @@ SSF is orthogonal to:
 
 \subsection{Experimental Setup}
 
-We evaluated SSF under synthetic and stress-test conditions
-simulating high-density input bursts and background noise.
+We evaluated SSF under synthetic stress-test conditions
+simulating bursty high-density input streams
+combined with background noise.
 
 Two systems were compared:
 \begin{itemize}
@@ -181,16 +215,18 @@ We measured:
 
 \subsection{Results}
 
-SSF reduced inference calls by 35--65\% under high-load conditions,
+SSF reduced inference calls by approximately 35--65\%
+under high-load conditions,
 without degrading semantic responsiveness.
-Causal divergence remained bounded even under extreme burst scenarios.
 
+Causal divergence remained bounded even under extreme burst scenarios.
 Silence acted as a stabilizing buffer rather than a failure mode.
 
 % =========================================================
 \section{Relation to Alignment and Constitutional AI}
 
-Alignment and Constitutional AI regulate \emph{behavioral correctness}.
+Alignment and Constitutional AI regulate
+\emph{behavioral correctness}.
 SSF regulates \emph{causal legitimacy}.
 
 They operate at different layers:
@@ -212,8 +248,8 @@ SSF provides inherent resistance to:
 \item stochastic destabilization.
 \end{itemize}
 
-These properties emerge structurally, without heuristic rules
-or content inspection.
+These properties emerge structurally,
+without content inspection or heuristic rules.
 
 % =========================================================
 \section{Limitations}
@@ -231,11 +267,14 @@ Nothing more. Nothing less.
 % =========================================================
 \section{Conclusion}
 
-The Silence-First Framework formalizes a missing primitive in AI systems:
+The Silence-First Framework formalizes a missing primitive
+in artificial intelligence systems:
 the right to computational silence.
 
-By regulating the transition from possible computation to actual computation,
-SSF introduces a causal boundary analogous to physical horizons.
+By regulating the transition from possible computation
+to actual computation,
+SSF introduces a causal boundary
+analogous to physical horizons.
 
 This boundary is not a limitation.
 It is a condition of stability.
@@ -243,8 +282,9 @@ It is a condition of stability.
 % =========================================================
 \section*{Acknowledgements}
 
-This work is released as part of the Aétios Muse Systemic Matrix
-open research initiative.
+This work is released as part of an open research initiative.
+The authors intend to maintain public implementations
+and invite independent evaluation.
 
 % =========================================================
 \bibliographystyle{plain}
