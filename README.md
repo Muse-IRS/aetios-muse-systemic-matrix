@@ -1,2 +1,127 @@
-# aetios-muse-systemic-matrix
-A causal regulation framework for sovereign, resilient, and finite AI systems.
+# Aétios Muse Systemic Matrix
+
+**A causal regulation framework for sovereign, resilient, and finite AI systems.**
+
+---
+
+## Overview
+
+**Aétios Muse Systemic Matrix** introduces **SSF (Silence–Structure–Filter)**,  
+a **pre-inference causal regulator** designed to decide **when an AI system is allowed to act**,  
+not *what* it should say.
+
+SSF operates **upstream of reasoning**, acting as a **causal gate** that protects AI systems from:
+
+- saturation,
+- runaway computation,
+- adversarial prompt flooding,
+- decoherence-like instability (classical or quantum),
+- uncontrolled cost escalation.
+
+It formalizes **silence as a valid, measurable, and bounded system state**.
+
+---
+
+## Core Principle
+
+The system relies on a single invariant:
+
+\[
+L = (\Phi_c \cdot \pi) / \Omega
+\]
+
+Where:
+- **Φ** is a multi-channel causal phase (information, thermodynamics, time, noise),
+- **Φ_c** is its inertially filtered form,
+- **Ω** is a reference frequency,
+- **L** is a universal causal load invariant.
+
+**L allows heterogeneous domains to be compared on a single axis.**
+
+---
+
+## What SSF Is
+
+- A **causal regulator**
+- A **pre-inference gate**
+- A **systemic protection layer**
+- A **silence governance mechanism**
+
+---
+
+## What SSF Is Not
+
+SSF is **not**:
+- a content filter,
+- a classifier,
+- a moral or ethical judge,
+- a reasoning engine,
+- an alignment policy.
+
+SSF decides **if** an AI may think — not **how** it thinks.
+
+---
+
+## Use Cases
+
+- Large-scale conversational AI (ChatGPT-like systems)
+- High-cost inference pipelines
+- Safety-critical automation
+- Financial and industrial control systems
+- Hybrid classical / quantum workloads
+- Research on computational saturation and limits
+
+---
+
+## Architecture Positioning
+
+SSF is designed to sit **before**:
+- LLM inference,
+- tool execution,
+- quantum circuit execution,
+- costly optimization loops.
+
+It is compatible with:
+- OpenAI-style architectures,
+- Anthropic-style constitutional layers,
+- Google-scale distributed systems.
+
+---
+
+## Open Source Policy
+
+This repository provides:
+- the **reference SSF kernel**,
+- the **causal invariant definition**,
+- reproducible simulations and benchmarks.
+
+The code is released under **Apache License 2.0**.
+
+---
+
+## Status
+
+**Experimental / Production-ready core**  
+Safe for:
+- academic research,
+- industrial proof-of-concept,
+- benchmarking and evaluation.
+
+---
+
+## Citation
+
+If you use this work, please cite it (see `CITATION.cff`).
+
+---
+
+## License
+
+Apache License 2.0 — see `LICENSE`.
+
+---
+
+## Aétios Muse Systemic Matrix
+
+*A system has the right to remain silent in order to stay coherent.*
+
