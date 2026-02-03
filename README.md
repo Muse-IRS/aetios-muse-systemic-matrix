@@ -97,6 +97,14 @@ This repository provides:
 
 The code is released under **Apache License 2.0**.
 
+### Commercial Use Notice
+
+While Aétios Muse Systemic Matrix (AMSM) is open source under the Apache License 2.0,
+commercial or industrial deployment of the Silence-First Framework (SSF) may require
+a separate commercial license and compliance agreement.
+
+See `LICENSING.md` for details.
+
 ---
 
 ## Documentation
