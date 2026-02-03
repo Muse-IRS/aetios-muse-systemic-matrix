@@ -40,7 +40,10 @@ SSF does not regulate what an AI system may produce,
 but whether it is causally legitimate for the system to produce any output at all.
 
 SSF formalizes a notion of causal load through a phase variable $\Phi$,
-a scalar invariant $L = (\Phi \times \pi) / \Omega$,
+a scalar invariant
+\[
+L = \frac{\Phi \cdot \pi}{\Omega},
+\]
 and a Silence-First gate that authorizes or suppresses inference.
 We show that SSF improves stability under saturation,
 reduces unnecessary inference calls,
@@ -111,7 +114,7 @@ thermodynamic dissipation, and stochastic noise.
 To introduce inertia and prevent instantaneous oscillations,
 we define a filtered phase $\Phi_c$:
 \[
-\Phi_c(t+1) = \alpha \Phi(t+1) + (1-\alpha)\Phi_c(t)
+\Phi_c(t+1) = \alpha \Phi(t+1) + (1-\alpha)\Phi_c(t),
 \]
 where $\alpha \in (0,1)$ controls causal inertia.
 
@@ -120,48 +123,46 @@ where $\alpha \in (0,1)$ controls causal inertia.
 We define the central invariant of SSF:
 \[
 \boxed{
-L = \dfrac{\Phi_c \times \pi}{\Omega}
+L = \dfrac{\Phi_c \cdot \pi}{\Omega}
 }
 \]
 
 where:
 \begin{itemize}
 \item $\Phi_c$ is the filtered causal phase,
-\item $\pi$ introduces a geometric phase normalization,
+\item $\pi$ introduces a geometric normalization constant,
 \item $\Omega$ is a reference stiffness parameter
-representing the nominal causal capacity of the system.
+representing nominal causal capacity.
 \end{itemize}
 
-In most experimental settings, $\Omega$ is normalized to 1,
-allowing direct comparison across systems.
+In most experiments, $\Omega$ is normalized to 1.
 
 \subsection{Interpretation of $L$}
 
-$L$ represents the \emph{effective causal load} of the system.
-It provides a single scalar metric that is comparable across:
+$L$ represents the effective \emph{causal load} of the system.
+It is not a performance metric,
+but a measure of causal tension,
+comparable across:
 \begin{itemize}
 \item informational regimes (entropy, prompt density),
-\item thermodynamic regimes (energy dissipation, resource usage),
-\item stochastic regimes (noise, jitter, decoherence),
+\item thermodynamic regimes (resource dissipation),
+\item stochastic regimes (noise, jitter),
 \item temporal regimes (latency, drift).
 \end{itemize}
-
-$L$ is not a performance metric.
-It is a measure of causal tension.
 
 % =========================================================
 \section{Silence-First Gate}
 
 The Silence-First gate authorizes inference if and only if:
 \[
-|\Delta \Phi_c| > \varepsilon
+|\Delta \Phi_c| > \varepsilon,
 \]
 where $\varepsilon$ is a system-specific divergence threshold.
 
 If the condition is not satisfied,
 the system remains silent.
 Silence is treated as a valid, measurable state,
-not as an error or failure.
+not as an error.
 
 % =========================================================
 \section{Architecture}
@@ -178,78 +179,41 @@ This prevents:
 \begin{itemize}
 \item unnecessary computation,
 \item unstable reasoning under saturation,
-\item feedback amplification and runaway loops.
+\item feedback amplification.
 \end{itemize}
 
-SSF is orthogonal to:
-\begin{itemize}
-\item alignment layers,
-\item safety classifiers,
-\item reasoning engines.
-\end{itemize}
+SSF is orthogonal to alignment,
+safety classifiers,
+and reasoning engines.
 
 % =========================================================
 \section{Experimental Evaluation}
 
-\subsection{Experimental Setup}
+\subsection{Setup}
 
-We evaluated SSF under synthetic stress-test conditions
-simulating bursty high-density input streams
+Synthetic stress tests simulated bursty, high-density input streams
 combined with background noise.
 
-Two systems were compared:
+Two configurations were compared:
 \begin{itemize}
 \item Baseline: inference always executed,
 \item SSF-enabled: inference gated by causal divergence.
 \end{itemize}
 
-\subsection{Metrics}
-
-We measured:
-\begin{itemize}
-\item inference call reduction,
-\item stability under saturation,
-\item divergence containment,
-\item silence ratio.
-\end{itemize}
-
 \subsection{Results}
 
 SSF reduced inference calls by approximately 35--65\%
-under high-load conditions,
-without degrading semantic responsiveness.
-
-Causal divergence remained bounded even under extreme burst scenarios.
-Silence acted as a stabilizing buffer rather than a failure mode.
+under high-load conditions.
+Causal divergence remained bounded,
+and silence acted as a stabilizing buffer.
 
 % =========================================================
 \section{Relation to Alignment and Constitutional AI}
 
-Alignment and Constitutional AI regulate
-\emph{behavioral correctness}.
-SSF regulates \emph{causal legitimacy}.
+Alignment regulates \emph{what} systems should produce.
+SSF regulates \emph{whether} production is causally legitimate.
 
-They operate at different layers:
-\begin{itemize}
-\item SSF: \emph{Should the system think now?}
-\item Alignment: \emph{What should the system think?}
-\end{itemize}
-
-SSF is therefore complementary, not competitive.
-
-% =========================================================
-\section{Security and Robustness}
-
-SSF provides inherent resistance to:
-\begin{itemize}
-\item prompt flooding,
-\item adversarial saturation,
-\item timing attacks,
-\item stochastic destabilization.
-\end{itemize}
-
-These properties emerge structurally,
-without content inspection or heuristic rules.
+The two approaches are complementary.
 
 % =========================================================
 \section{Limitations}
@@ -257,98 +221,60 @@ without content inspection or heuristic rules.
 SSF does not:
 \begin{itemize}
 \item improve reasoning quality,
-\item guarantee correctness,
-\item enforce ethical constraints.
+\item enforce ethics,
+\item guarantee correctness.
 \end{itemize}
 
-It preserves the system's ability to remain coherent.
-Nothing more. Nothing less.
+It preserves causal coherence only.
 
 % =========================================================
 \section{Conclusion}
 
-The Silence-First Framework formalizes a missing primitive
-in artificial intelligence systems:
+The Silence-First Framework introduces a missing primitive:
 the right to computational silence.
 
 By regulating the transition from possible computation
 to actual computation,
-SSF introduces a causal boundary
+SSF establishes a causal boundary
 analogous to physical horizons.
-
-This boundary is not a limitation.
-It is a condition of stability.
-
-% =========================================================
-\section*{Acknowledgements}
-
-This work is released as part of an open research initiative.
-The authors intend to maintain public implementations
-and invite independent evaluation.
 
 % =========================================================
 \appendix
 \section{Methodology \& Assumptions}
-\label{appendix:methodology}
 
-\subsection{Scope of Evaluation}
+\subsection{Assumptions}
 
-The Silence-First Framework is evaluated strictly as a
-\emph{pre-inference causal regulator}.
-It is not assessed on output quality, semantic correctness,
-ethical alignment, or task performance.
-
-All measurements concern system-level behavior:
-stability, load regulation, and inference gating.
-
-\subsection{Simulation Assumptions}
-
-The experimental environment assumes:
+The following assumptions underlie SSF:
 \begin{itemize}
-\item deterministic inference cost per call,
-\item bounded computational resources,
-\item bursty and adversarial input patterns,
-\item stochastic background noise.
+\item Computational resources are finite.
+\item Saturation induces instability.
+\item Silence is preferable to incoherent action.
+\item Causal legitimacy precedes semantic evaluation.
 \end{itemize}
-
-These assumptions approximate real-world large-scale
-AI deployment conditions.
 
 \subsection{Phase Construction}
 
-The causal phase increment $\Delta \Phi$ is modeled as a
-composite quantity aggregating:
-\begin{itemize}
-\item informational density (proxy entropy),
-\item temporal drift,
-\item thermodynamic dissipation,
-\item stochastic jitter.
-\end{itemize}
+$\Phi$ may be constructed as a weighted sum:
+\[
+\Delta \Phi = w_{info}\Phi_{info}
++ w_{thermo}\Phi_{thermo}
++ w_{time}\Phi_{time}
++ w_{noise}\Phi_{noise}.
+\]
 
-No single component dominates $\Phi$ by construction.
+The exact formulation is implementation-dependent.
 
 \subsection{Threshold Selection}
 
-The divergence threshold $\varepsilon$ is selected empirically
+The threshold $\varepsilon$ is selected empirically
 to balance responsiveness and stability.
-It is not optimized for maximal throughput.
+No semantic information is used in gating decisions.
 
 \subsection{Reproducibility}
 
-All experiments are reproducible using synthetic inputs
-and deterministic random seeds.
-Public reference implementations are provided separately.
-
-\subsection{Interpretation Boundaries}
-
-SSF metrics should not be interpreted as:
-\begin{itemize}
-\item intelligence scores,
-\item safety guarantees,
-\item correctness proofs.
-\end{itemize}
-
-They strictly quantify causal load and gating behavior.
+All experiments rely on deterministic updates
+plus bounded stochastic perturbations.
+Reference implementations are publicly available.
 
 % =========================================================
 \bibliographystyle{plain}
