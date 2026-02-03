@@ -1,43 +1,153 @@
-# Licensing Model — Aétios Muse Systemic Matrix
+# LICENSING.md
+Aétios Muse Systemic Matrix (AMSM)
+Silence-First Framework (SSF)
 
-The Aétios Muse Systemic Matrix (AMSM) project is distributed under a
-**dual-licensing model**.
+Version: 1.0  
+Status: Public reference — binding notice  
+Last update: 2026
 
-## Open Source License
+---
 
-The reference implementation of the Silence-First Framework (SSF)
-is released under the **Apache License 2.0**.
+## 1. Scope of This Document
 
-This license grants permission to:
-- use, study, modify, and redistribute the software,
-- for research, evaluation, benchmarking, and experimental purposes.
+This document clarifies the licensing and usage conditions of the
+**Aétios Muse Systemic Matrix (AMSM)** repository and its core component,
+the **Silence-First Framework (SSF)**.
 
-## Commercial and Industrial Use
+It does **not** replace the Apache License 2.0.
+It complements it by describing **governance, usage intent, and commercial pathways**.
 
-Use of SSF in **production systems**, **commercial products**, or
-**regulated environments** (including but not limited to finance,
-aviation, defense, energy, healthcare, or government systems)
-**may require a separate commercial license**.
+---
 
-Such use includes:
-- SaaS or API deployment,
-- integration into proprietary platforms,
-- safety-critical or mission-critical systems,
-- large-scale inference cost optimization.
+## 2. Open Source License (Default)
 
-## Commercial Licensing
+All source code in this repository is released under:
 
-A commercial license provides:
-- contractual authorization for production use,
-- audit and compliance framework,
-- sector-specific adaptations,
-- governance and liability clarification.
+**Apache License, Version 2.0**
 
-For commercial licensing inquiries:
-contact: licensing@aetios-muse-systemic-matrix.org
+You are free to:
+- use,
+- modify,
+- distribute,
+- embed,
+- fork
 
-## Rationale
+the code, in accordance with the Apache 2.0 license terms.
 
-SSF is a causal regulation layer that governs *when* a system may act.
-Uncontrolled deployment in critical systems may create systemic risks.
-This licensing model ensures responsible industrial adoption.
+This includes:
+- academic research,
+- experimentation,
+- benchmarking,
+- non-commercial deployments,
+- internal evaluation.
+
+The Apache 2.0 license applies **as-is**.
+
+---
+
+## 3. Research and Academic Use
+
+The following uses are explicitly encouraged and supported:
+
+- academic research and publications,
+- preprints (arXiv, HAL, etc.),
+- reproducible experiments,
+- teaching and educational material,
+- open benchmarking and comparative studies.
+
+No additional permission is required for these uses.
+
+Citation is requested via the provided `CITATION.cff` file.
+
+---
+
+## 4. Commercial and Industrial Use Notice
+
+While the code is open source under Apache 2.0,
+**commercial or industrial deployment of SSF as a systemic control layer**
+may require a **separate commercial license and compliance agreement**.
+
+This applies in particular to uses involving:
+
+- large-scale production systems,
+- safety-critical environments (finance, aviation, energy, defense, government),
+- regulated infrastructures,
+- high-cost inference pipelines,
+- sovereign or mission-critical AI systems.
+
+This notice does **not** restrict Apache 2.0 rights,
+but signals the existence of an **optional commercial governance framework**.
+
+---
+
+## 5. Dual Licensing Model (Planned)
+
+Aétios Muse Systemic Matrix follows a **dual licensing strategy**:
+
+### 5.1 Open Source Track
+- Apache License 2.0
+- Community-driven
+- Research, experimentation, evaluation
+
+### 5.2 Commercial Track (Optional)
+- Commercial license agreement
+- Compliance, audit, and certification
+- SLA, support, and long-term maintenance
+- Sector-specific adaptations (finance, aviation, government, etc.)
+
+The commercial track will be operated by the legal entity
+**Aétios Muse Systemic Matrix (AMSM)** once formally established.
+
+---
+
+## 6. No Warranty / No Liability
+
+Unless explicitly agreed otherwise in writing:
+
+- The software is provided **“AS IS”**.
+- No warranty is provided, express or implied.
+- The authors and contributors assume no liability
+  for damages resulting from the use of this software.
+
+This clause mirrors the Apache 2.0 license.
+
+---
+
+## 7. Governance and Future Evolution
+
+This repository represents the **reference implementation** of SSF.
+
+Future evolutions may include:
+- certified builds,
+- hardened industrial versions,
+- sector-specific branches,
+- formal verification layers.
+
+Such evolutions do not retroactively alter
+the license of existing open source code.
+
+---
+
+## 8. Contact
+
+For:
+- commercial licensing,
+- compliance questions,
+- industrial partnerships,
+- certification programs,
+
+contact will be provided through official AMSM channels
+once the legal entity is registered.
+
+---
+
+## 9. Summary (Non-Legal)
+
+- SSF is open source.
+- Research use is free and encouraged.
+- Commercial deployment may require a separate agreement.
+- Silence is a right — also in licensing.
+
+---
+
+© Aétios Muse Systemic Matrix — Open Research Initiative
