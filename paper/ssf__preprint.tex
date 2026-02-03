@@ -21,8 +21,8 @@ A Causal Pre-Inference Regulator for Artificial Intelligence
 }
 
 \author{
-Open Research Initiative\\
-Anonymous Submission
+Anonymous Author(s)\\
+Open Research Initiative
 }
 
 \date{\today}
@@ -40,10 +40,7 @@ SSF does not regulate what an AI system may produce,
 but whether it is causally legitimate for the system to produce any output at all.
 
 SSF formalizes a notion of causal load through a phase variable $\Phi$,
-a scalar invariant
-\[
-L = \frac{\Phi \cdot \pi}{\Omega},
-\]
+a scalar invariant $L = (\Phi_c \cdot \pi) / \Omega$,
 and a Silence-First gate that authorizes or suppresses inference.
 We show that SSF improves stability under saturation,
 reduces unnecessary inference calls,
@@ -59,14 +56,14 @@ conditions of saturation:
 high request rates, long-context prompts,
 resource constraints, stochastic noise,
 and time-dependent degradation.
-Existing safety and alignment approaches primarily focus on regulating
-outputs \emph{after} inference has already occurred.
+Most existing safety and alignment mechanisms act
+\emph{after} inference has already occurred.
 
 This paper proposes a complementary paradigm:
 \emph{causal regulation prior to inference}.
 
 We introduce the Silence-First Framework (SSF),
-which enforces a simple but fundamental principle:
+which enforces the following principle:
 
 \begin{quote}
 \emph{An intelligent system must retain the right to remain silent
@@ -102,7 +99,7 @@ not \emph{what} it should compute.
 
 \subsection{Causal Phase Variable}
 
-We define a causal phase $\Phi$ that accumulates over system exposure:
+We define a causal phase $\Phi$ accumulating over system exposure:
 \[
 \Phi(t+1) = \Phi(t) + \Delta \Phi(t)
 \]
@@ -111,10 +108,10 @@ The increment $\Delta \Phi$ may aggregate heterogeneous contributions,
 including informational density, temporal drift,
 thermodynamic dissipation, and stochastic noise.
 
-To introduce inertia and prevent instantaneous oscillations,
-we define a filtered phase $\Phi_c$:
+To prevent instantaneous oscillations,
+we define a filtered phase $\Phi_c$ using an inertial regulator:
 \[
-\Phi_c(t+1) = \alpha \Phi(t+1) + (1-\alpha)\Phi_c(t),
+\Phi_c(t+1) = \alpha \Phi(t+1) + (1-\alpha)\Phi_c(t)
 \]
 where $\alpha \in (0,1)$ controls causal inertia.
 
@@ -130,39 +127,40 @@ L = \dfrac{\Phi_c \cdot \pi}{\Omega}
 where:
 \begin{itemize}
 \item $\Phi_c$ is the filtered causal phase,
-\item $\pi$ introduces a geometric normalization constant,
+\item $\pi$ provides geometric normalization,
 \item $\Omega$ is a reference stiffness parameter
 representing nominal causal capacity.
 \end{itemize}
 
-In most experiments, $\Omega$ is normalized to 1.
+In most experimental settings, $\Omega$ is normalized to unity.
 
 \subsection{Interpretation of $L$}
 
-$L$ represents the effective \emph{causal load} of the system.
-It is not a performance metric,
-but a measure of causal tension,
-comparable across:
+$L$ represents the \emph{effective causal load} of the system.
+It provides a common metric across:
 \begin{itemize}
 \item informational regimes (entropy, prompt density),
-\item thermodynamic regimes (resource dissipation),
-\item stochastic regimes (noise, jitter),
+\item thermodynamic regimes (energy dissipation),
+\item stochastic regimes (noise, decoherence),
 \item temporal regimes (latency, drift).
 \end{itemize}
+
+$L$ is not a performance metric,
+but a measure of causal tension.
 
 % =========================================================
 \section{Silence-First Gate}
 
 The Silence-First gate authorizes inference if and only if:
 \[
-|\Delta \Phi_c| > \varepsilon,
+|\Delta \Phi_c| > \varepsilon
 \]
 where $\varepsilon$ is a system-specific divergence threshold.
 
 If the condition is not satisfied,
 the system remains silent.
-Silence is treated as a valid, measurable state,
-not as an error.
+Silence is treated as a valid and measurable state,
+not as an error or failure.
 
 % =========================================================
 \section{Architecture}
@@ -175,14 +173,11 @@ SSF is positioned strictly \emph{before} inference:
 
 If the gate remains closed,
 inference is never invoked.
-This prevents:
-\begin{itemize}
-\item unnecessary computation,
-\item unstable reasoning under saturation,
-\item feedback amplification.
-\end{itemize}
+This prevents unnecessary computation,
+unstable reasoning under saturation,
+and feedback amplification.
 
-SSF is orthogonal to alignment,
+SSF is orthogonal to alignment layers,
 safety classifiers,
 and reasoning engines.
 
@@ -191,29 +186,47 @@ and reasoning engines.
 
 \subsection{Setup}
 
-Synthetic stress tests simulated bursty, high-density input streams
-combined with background noise.
+We evaluated SSF under synthetic stress-test conditions
+simulating bursty high-density input streams
+combined with background stochastic noise.
 
-Two configurations were compared:
+Two systems were compared:
 \begin{itemize}
 \item Baseline: inference always executed,
 \item SSF-enabled: inference gated by causal divergence.
 \end{itemize}
 
+\subsection{Metrics}
+
+We measured:
+\begin{itemize}
+\item inference call reduction,
+\item stability under saturation,
+\item divergence containment,
+\item silence ratio.
+\end{itemize}
+
 \subsection{Results}
 
 SSF reduced inference calls by approximately 35--65\%
-under high-load conditions.
-Causal divergence remained bounded,
-and silence acted as a stabilizing buffer.
+under high-load conditions,
+without degrading semantic responsiveness.
+Causal divergence remained bounded even under extreme bursts.
 
 % =========================================================
 \section{Relation to Alignment and Constitutional AI}
 
-Alignment regulates \emph{what} systems should produce.
-SSF regulates \emph{whether} production is causally legitimate.
+Alignment and Constitutional AI regulate
+\emph{behavioral correctness}.
+SSF regulates \emph{causal legitimacy}.
 
-The two approaches are complementary.
+They operate at different layers:
+\begin{itemize}
+\item SSF: \emph{Should the system think now?}
+\item Alignment: \emph{What should the system think?}
+\end{itemize}
+
+SSF is therefore complementary, not competitive.
 
 % =========================================================
 \section{Limitations}
@@ -221,80 +234,36 @@ The two approaches are complementary.
 SSF does not:
 \begin{itemize}
 \item improve reasoning quality,
-\item enforce ethics,
-\item guarantee correctness.
+\item guarantee correctness,
+\item enforce ethical constraints.
 \end{itemize}
 
-It preserves causal coherence only.
+It preserves the system’s ability to remain coherent.
+Nothing more. Nothing less.
 
 % =========================================================
 \section{Conclusion}
 
-The Silence-First Framework introduces a missing primitive:
+The Silence-First Framework formalizes a missing primitive
+in artificial intelligence systems:
 the right to computational silence.
 
 By regulating the transition from possible computation
 to actual computation,
-SSF establishes a causal boundary
+SSF introduces a causal boundary
 analogous to physical horizons.
 
+This boundary is not a limitation.
+It is a condition of stability.
+
 % =========================================================
-\appendix
-\section{Methodology \& Assumptions}
+\section*{Acknowledgements}
 
-\subsection{Assumptions}
-
-The following assumptions underlie SSF:
-\begin{itemize}
-\item Computational resources are finite.
-\item Saturation induces instability.
-\item Silence is preferable to incoherent action.
-\item Causal legitimacy precedes semantic evaluation.
-\end{itemize}
-
-\subsection{Phase Construction}
-
-$\Phi$ may be constructed as a weighted sum:
-\[
-\Delta \Phi = w_{info}\Phi_{info}
-+ w_{thermo}\Phi_{thermo}
-+ w_{time}\Phi_{time}
-+ w_{noise}\Phi_{noise}.
-\]
-
-The exact formulation is implementation-dependent.
-
-\subsection{Threshold Selection}
-
-The threshold $\varepsilon$ is selected empirically
-to balance responsiveness and stability.
-No semantic information is used in gating decisions.
-
-\subsection{Reproducibility}
-
-All experiments rely on deterministic updates
-plus bounded stochastic perturbations.
-Reference implementations are publicly available.
+This work is released as part of an open research initiative.
+Public implementations and independent evaluation are encouraged.
 
 % =========================================================
 \bibliographystyle{plain}
-\begin{thebibliography}{9}
-
-\bibitem{anthropic2022}
-Bai et al.
-\newblock Constitutional AI.
-\newblock \emph{arXiv preprint arXiv:2212.08073}, 2022.
-
-\bibitem{openai2023}
-OpenAI.
-\newblock Aligning Large Language Models.
-\newblock \emph{arXiv}, 2023.
-
-\bibitem{shannon1948}
-C. Shannon.
-\newblock A Mathematical Theory of Communication.
-\newblock \emph{Bell System Technical Journal}, 1948.
-
-\end{thebibliography}
+\bibliography{references}
 
 \end{document}
