@@ -24,7 +24,7 @@ It formalizes **silence as a valid, measurable, and bounded system state**.
 
 ## Core Principle
 
-The system relies on a single invariant:
+SSF relies on a single invariant:
 
 \[
 L = (\Phi_c \cdot \pi) / \Omega
@@ -33,7 +33,7 @@ L = (\Phi_c \cdot \pi) / \Omega
 Where:
 - **Φ** is a multi-channel causal phase (information, thermodynamics, time, noise),
 - **Φ_c** is its inertially filtered form,
-- **Ω** is a reference frequency,
+- **Ω** is a reference stiffness / frequency parameter,
 - **L** is a universal causal load invariant.
 
 **L allows heterogeneous domains to be compared on a single axis.**
@@ -88,6 +88,20 @@ It is compatible with:
 
 ---
 
+## Academic Reference / Canonical Repository
+
+This repository is the **canonical public reference** of SSF.
+
+Forks and derivative implementations are expected in open source.
+However:
+
+- citations and academic references should point to this repository,
+- the reference preprint in `paper/` defines the baseline formalism,
+- significant behavioral changes should be published under a distinct name
+  to avoid confusion with the SSF reference kernel.
+
+---
+
 ## Open Source Policy
 
 This repository provides:
@@ -97,13 +111,15 @@ This repository provides:
 
 The code is released under **Apache License 2.0**.
 
-### Commercial Use Notice
+This means it can be used for:
+- academic research,
+- internal evaluation,
+- **commercial deployments**,
+- industrial production systems,
+- forks and redistribution.
 
-While Aétios Muse Systemic Matrix (AMSM) is open source under the Apache License 2.0,  
-commercial or industrial deployment of the Silence-First Framework (SSF) may require  
-a separate commercial license and compliance agreement.
-
-See `LICENSING.md` for details.
+See `LICENSING.md` for governance notes and the intended commercial pathway
+(audit, certification, and industrial support).
 
 ---
 
@@ -131,20 +147,6 @@ Safe for:
 ## Citation
 
 If you use this work, please cite it (see `CITATION.cff`).
-
----
-
-## Academic Reference / Canonical Repository
-
-This GitHub repository is the **canonical public reference** for the  
-**Silence-First Framework (SSF)** within the **Aétios Muse Systemic Matrix (AMSM)** initiative.
-
-For academic reproducibility and attribution:
-- the **arXiv/HAL-ready preprint** is located in `paper/`,
-- the **reference implementation** is located in `src/`,
-- citation metadata is provided in `CITATION.cff`.
-
-Forks and derivative implementations are expected in open source, but this repository should be treated as the **primary reference source** for SSF.
 
 ---
 
