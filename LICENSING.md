@@ -3,197 +3,100 @@ Aétios Muse Systemic Matrix (AMSM)
 Silence-First Framework (SSF)
 
 Version: 1.1  
-Status: Public reference — informational notice (non-binding)  
+Status: Public reference — non-binding governance notes  
 Last update: 2026
 
 ---
 
-## 1. Scope of This Document
+## 1. Scope
 
-This document clarifies the licensing and usage context of the
-**Aétios Muse Systemic Matrix (AMSM)** repository and its core component,
-the **Silence-First Framework (SSF)**.
+This document explains how licensing is handled in this repository.
 
-It does **not** replace, override, or modify the Apache License 2.0.
-It is provided as an **informational notice** describing:
-
-- governance intent,
-- recommended usage pathways,
-- optional commercial and compliance programs.
+It does **not** replace the Apache License 2.0.
+It does **not** add restrictions.
+It provides **clarity**.
 
 ---
 
-## 2. Open Source License (Default)
+## 2. License (Binding)
 
 All source code in this repository is released under:
 
 **Apache License, Version 2.0**
 
-You are free to:
+Apache 2.0 applies **as-is**.
 
-- use,
-- modify,
-- distribute,
-- embed,
-- fork
-
-the code, in accordance with the Apache 2.0 license terms.
-
-This includes (non-exhaustive):
-
+This includes, without limitation:
 - academic research,
-- experimentation,
-- benchmarking,
 - non-commercial deployments,
-- commercial deployments,
-- internal evaluation.
-
-The Apache 2.0 license applies **as-is**.
-
----
-
-## 3. Research and Academic Use
-
-The following uses are explicitly encouraged:
-
-- academic research and publications,
-- preprints (arXiv, HAL, etc.),
-- reproducible experiments,
-- teaching and educational material,
-- open benchmarking and comparative studies.
-
-No additional permission is required for these uses.
-
-Citation is requested via the provided `CITATION.cff` file.
+- **commercial deployments**,
+- industrial production systems,
+- forks and redistribution.
 
 ---
 
-## 4. Commercial and Industrial Use (Clarification)
+## 3. Warranty / Liability
+
+The software is provided **"AS IS"**.
+
+No warranty is provided, express or implied.
+No liability is assumed.
+
+This is not a separate clause.
+It is the Apache 2.0 position.
+
+---
+
+## 4. Canonical Reference
+
+This repository is the **reference implementation** of SSF.
+
+Forks are normal in open source.
+However, the SSF reference kernel is defined by:
+
+- the code in this repository,
+- the preprint in `paper/`,
+- the invariant definition:
+  L = (Φ_c · π) / Ω
+
+Derivative implementations remain free under Apache 2.0,
+but should not be presented as the reference kernel
+if their behavior diverges.
+
+---
+
+## 5. Commercial Pathway (Non-Legal)
 
 Apache 2.0 already allows commercial use.
 
-However, SSF is a **systemic control layer**.
-In safety-critical or regulated contexts, organizations commonly require:
+The purpose of a future commercial entity (if established)
+is not to restrict usage,
+but to provide optional services such as:
 
-- documented assumptions,
-- audit trails,
-- validation protocols,
-- compliance reporting,
-- certification evidence,
-- long-term maintenance guarantees.
+- deployment engineering,
+- industrial hardening,
+- audit methodology,
+- certification and reporting,
+- long-term maintenance,
+- sector-specific adaptations.
 
-This repository provides an open reference implementation.
-It does not claim to provide sector-specific certification or compliance
-out of the box.
-
----
-
-## 5. Optional Commercial Programs (Non-Restrictive)
-
-Independent of the Apache 2.0 license rights, maintainers may offer
-(optional, non-mandatory) commercial programs such as:
-
-- compliance support and audit documentation,
-- certification-oriented builds,
-- hardened industrial versions,
-- sector-specific adaptations (finance, aviation, energy, defense, government),
-- SLA, support, and long-term maintenance.
-
-These programs are **optional** and do not restrict Apache 2.0 usage.
+This is a service pathway, not a license barrier.
 
 ---
 
-## 6. Dual Track Strategy (Planned)
+## 6. Contact
 
-Aétios Muse Systemic Matrix follows a dual-track strategy:
-
-### 6.1 Open Source Track
-- Apache License 2.0
-- Community-driven
-- Research, experimentation, evaluation
-- Reference kernel and reproducible benchmarks
-
-### 6.2 Industrial Track (Optional)
-- Hardened distributions
-- Compliance tooling
-- Certification support
-- Sector-specific integration layers
-- Long-term maintenance
-
-The industrial track may later be operated by a formal legal entity
-once registered.
+No official commercial contact exists at this time.
+This repository is published as an open research initiative.
 
 ---
 
-## 7. No Warranty / No Liability
-
-Unless explicitly agreed otherwise in writing:
-
-- The software is provided **“AS IS”**.
-- No warranty is provided, express or implied.
-- The authors and contributors assume no liability
-  for damages resulting from the use of this software.
-
-This clause mirrors the Apache 2.0 license.
-
----
-
-## 8. Governance and Future Evolution
-
-This repository represents a **reference implementation** of SSF.
-
-Future evolutions may include:
-
-- certified builds,
-- hardened industrial versions,
-- sector-specific branches,
-- formal verification layers,
-- reproducible benchmark suites.
-
-Such evolutions do not retroactively alter
-the license of existing open source code.
-
----
-
-## 9. Canonical Repository and Academic Reference
-
-To reduce ambiguity across forks, this repository is considered the
-**canonical public reference** for SSF under the AMSM label.
-
-Academic citations should reference:
-
-- the repository URL,
-- the release tag (version),
-- and `CITATION.cff`.
-
-Forks remain valid under Apache 2.0.
-This section is informational and does not restrict forking.
-
----
-
-## 10. Contact
-
-For:
-
-- industrial partnerships,
-- compliance programs,
-- certification pathways,
-- long-term maintenance discussions,
-
-contact will be provided through official channels
-once a formal legal structure is registered.
-
-Until then, contact is available via the public GitHub repository.
-
----
-
-## 11. Summary (Non-Legal)
+## 7. Summary
 
 - SSF is open source under Apache 2.0.
-- Commercial use is permitted under Apache 2.0.
-- Research use is free and encouraged.
-- Optional industrial programs may exist in the future.
-- Silence is a right — also in governance.
+- Commercial use is permitted.
+- Forks are expected.
+- The reference implementation is this repository.
 
 ---
 
