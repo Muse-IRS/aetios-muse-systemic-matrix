@@ -99,8 +99,8 @@ The code is released under **Apache License 2.0**.
 
 ### Commercial Use Notice
 
-While Aétios Muse Systemic Matrix (AMSM) is open source under the Apache License 2.0,
-commercial or industrial deployment of the Silence-First Framework (SSF) may require
+While Aétios Muse Systemic Matrix (AMSM) is open source under the Apache License 2.0,  
+commercial or industrial deployment of the Silence-First Framework (SSF) may require  
 a separate commercial license and compliance agreement.
 
 See `LICENSING.md` for details.
@@ -134,6 +134,20 @@ If you use this work, please cite it (see `CITATION.cff`).
 
 ---
 
+## Academic Reference / Canonical Repository
+
+This GitHub repository is the **canonical public reference** for the  
+**Silence-First Framework (SSF)** within the **Aétios Muse Systemic Matrix (AMSM)** initiative.
+
+For academic reproducibility and attribution:
+- the **arXiv/HAL-ready preprint** is located in `paper/`,
+- the **reference implementation** is located in `src/`,
+- citation metadata is provided in `CITATION.cff`.
+
+Forks and derivative implementations are expected in open source, but this repository should be treated as the **primary reference source** for SSF.
+
+---
+
 ## License
 
 Apache License 2.0 — see `LICENSE`.
@@ -143,4 +157,3 @@ Apache License 2.0 — see `LICENSE`.
 ## Aétios Muse Systemic Matrix
 
 *A system has the right to remain silent in order to stay coherent.*
-
