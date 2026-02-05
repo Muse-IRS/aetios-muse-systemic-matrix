@@ -1,10 +1,22 @@
 # Code of Conduct
 
-This project adheres to a simple principle:
+Aétios Muse Systemic Matrix (AMSM) — Open Research Initiative
 
-Respect systems, people, and limits.
+This repository exists to build and preserve a minimal, auditable SSF reference.
 
-Harassment, coercion, and abusive behavior
-are not tolerated.
+By participating, you agree to:
 
-Discussions must remain technical and constructive.
+- be respectful,
+- be precise,
+- argue ideas, not people,
+- avoid harassment, intimidation, or personal attacks,
+- avoid spam, noise, and bad-faith disruption.
+
+This is not a social space.
+This is a technical research repository.
+
+If you cannot engage calmly and rigorously, do not engage.
+
+Maintainers may moderate, lock, or remove content when necessary.
+
+© Aétios Muse Systemic Matrix
